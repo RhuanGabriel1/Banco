@@ -9,19 +9,11 @@ public class MenuLogin implements Menus.IMenuLogin{
 
     Scanner s = new Scanner(System.in);
     private int senha, numeroAgencia, numeroConta;
-    @Override
-    public void opcoesMenuLogin() {
-        System.out.print("Digite o Número da Agencia: ");
-        setNumeroAgencia(s.nextInt());
-        System.out.print("Digite seu Número da Conta: ");
-        setNumeroConta(s.nextInt());
-        s.nextLine();
-    }
 
     @Override
-    public void senha() {
-        System.out.print("Digite sua senha: ");
-        recebeSenha();
+    public void opcoesMenuLogin() {
+        numeroAgencia();
+        numeroConta();
     }
 
     @Override
@@ -46,6 +38,39 @@ public class MenuLogin implements Menus.IMenuLogin{
         setSenha(s.nextInt());
         s.nextLine();
     }
+
+    @Override
+    public void recebeNumeroConta() {
+        setNumeroConta(s.nextInt());
+        s.nextLine();
+    }
+
+    @Override
+    public void recebeNumeroAgencia() {
+        setNumeroAgencia(s.nextInt());
+        s.nextLine();
+    }
+
+    @Override
+    public void numeroConta() {
+        System.out.print("Digite seu Número da Conta: ");
+        recebeNumeroConta();
+    }
+
+    @Override
+    public void numeroAgencia() {
+        System.out.print("Digite o Número da Agencia: ");
+        recebeNumeroAgencia();
+    }
+    @Override
+    public void senha() {
+        System.out.print("Digite sua senha: ");
+        recebeSenha();
+    }
+
+
+
+
 
     public int getSenha() {
         return senha;

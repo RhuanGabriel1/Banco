@@ -8,11 +8,18 @@ public interface Menus {
 
     interface  IMenuLogin{
         void opcoesMenuLogin();
-        void senha();
         boolean comparacaoSenha();
         void recebeSenha();
+        void recebeNumeroConta();
+        void recebeNumeroAgencia();
+        void numeroConta();
+        void numeroAgencia();
+        void senha();
     }
 
+    interface IMenuInsideHomePF{
+        void opcoesMenuInsideHomePF();
+    }
 
 
 }

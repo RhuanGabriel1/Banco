@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.menus.MenuInsideHomePF;
 import com.company.menus.MenuLogin;
 import com.company.menus.MenuPrincipal;
 
@@ -24,8 +25,17 @@ public class Aplicacao {
         if(menuPrincipal.getEntrada() == 1) {
             menuLogin.opcoesMenuLogin();
             menuLogin.comparacaoSenha();
+            if(menuLogin.comparacaoSenha() == true){
+                MenuInsideHomePF menuInsideHomePF = new MenuInsideHomePF();
+                do{
+                    System.out.println("Digite uma entrada: ");
+                    menuInsideHomePF.setEntrada(s.nextInt());
+                    s.nextLine();
+                }while (menuInsideHomePF.getEntrada()!=1 && menuInsideHomePF.getEntrada()!=2 &&
+                        menuInsideHomePF.getEntrada()!=3 && menuInsideHomePF.getEntrada()!=4);
+            }
         }else{
-
+            System.out.println("Em contrução!");
         }
 
     }
