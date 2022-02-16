@@ -1,6 +1,6 @@
 package com.company.menus;
 
-import com.company.Dados;
+import com.company.dados.Dados;
 import com.company.interfaces.Menus;
 
 import java.util.Scanner;
@@ -67,9 +67,6 @@ public class MenuLogin implements Menus.IMenuLogin{
         System.out.print("Digite sua senha: ");
         recebeSenha();
     }
-
-
-
 
 
     public int getSenha() {
