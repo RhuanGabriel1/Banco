@@ -25,8 +25,6 @@ public class Aplicacao {
 
         if(menuPrincipal.getEntrada() == 1) {
             menuLogin.opcoesMenuLogin();
-            menuLogin.comparacaoSenha();
-
         if(menuLogin.comparacaoSenha()){
             MenuInsideHomePF menuInsideHomePF = new MenuInsideHomePF();
             menuInsideHomePF.opcoesMenuInsideHomePF();
@@ -34,7 +32,6 @@ public class Aplicacao {
                 switchCase.receberEntrada(s.nextInt());
             }
         }
-
 
         }else{
             System.out.println("Em contrução!");

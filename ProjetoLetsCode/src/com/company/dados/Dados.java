@@ -1,7 +1,5 @@
 package com.company.dados;
 
-import com.company.usuarios.Clientes;
-
 import java.math.BigDecimal;
 
 public class Dados{

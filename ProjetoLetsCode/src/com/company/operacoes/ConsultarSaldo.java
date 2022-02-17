@@ -6,10 +6,9 @@ import java.math.BigDecimal;
 
 public class ConsultarSaldo {
 
-    Dados dados = new Dados();
-
-    public BigDecimal retornarSaldo(){
-       return dados.getSaldo();
+    public BigDecimal retornarSaldo(Dados dados){
+        System.out.print("Saldo: R$ ");
+        return dados.getSaldo();
     }
 
 }

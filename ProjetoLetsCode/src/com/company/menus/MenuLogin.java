@@ -68,7 +68,6 @@ public class MenuLogin implements Menus.IMenuLogin{
         recebeSenha();
     }
 
-
     public int getSenha() {
         return senha;
     }

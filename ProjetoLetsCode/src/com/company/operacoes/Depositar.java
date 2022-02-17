@@ -6,11 +6,8 @@ import java.math.BigDecimal;
 
 public class Depositar {
 
-    Dados dados = new Dados();
-
-    public void depositar(BigDecimal valor){
+    public void depositar(BigDecimal valor, Dados dados){
         dados.setSaldo(dados.getSaldo().add(valor));
-        System.out.println(valor + " " + dados.getSaldo());
     }
 
 }
