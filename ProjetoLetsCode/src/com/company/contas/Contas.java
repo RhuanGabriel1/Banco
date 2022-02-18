@@ -1,10 +1,13 @@
 package com.company.contas;
 
+import com.company.usuarios.Clientes;
+
 import java.util.Random;
 
-public abstract class Contas {
+public abstract class Contas extends Clientes {
 
     private String numeroDaConta;
+
 
     public void gerarNumeroConta(){
         Random random = new Random();

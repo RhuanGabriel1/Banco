@@ -19,10 +19,11 @@ public interface Menus {
 
     interface IMenuInsideHomePF{
         void opcoesMenuInsideHomePF();
-        public void receberEntrada(int entrada);
+        void receberEntrada(int entrada);
     }
 
     interface IMenuInsideHomePJ{
         void opcoesMenuInsideHomePJ();
+        void receberEntrada(int entrada);
     }
 }
