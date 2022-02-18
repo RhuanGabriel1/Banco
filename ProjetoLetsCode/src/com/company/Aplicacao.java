@@ -38,12 +38,4 @@ public class Aplicacao {
         }
 
     }
-
-//            do{
-//                System.out.println("Digite uma entrada: ");
-//                menuInsideHomePF.setEntrada(s.nextInt());
-//                s.nextLine();
-//            }while (menuInsideHomePF.getEntrada()!=1 && menuInsideHomePF.getEntrada()!=2 &&
-//                    menuInsideHomePF.getEntrada()!=3 && menuInsideHomePF.getEntrada()!=4);
-
 }
