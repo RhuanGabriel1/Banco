@@ -26,4 +26,14 @@ public interface Menus {
         void opcoesMenuInsideHomePJ();
         void receberEntrada(int entrada);
     }
+
+    interface IMenuCriacaoDeConta{
+        void opcoesMenuCriacaoDeConta();
+        void receberEntrada(int entrada);
+    }
+
+    interface IMenuColocarDadosConta{
+        void digitarMenuColocarDadosConta();
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.company.main;
 
+import com.company.menus.MenuCriacaoDeConta;
 import com.company.menus.MenuInsideHomePF;
 import com.company.menus.MenuLogin;
 import com.company.menus.MenuPrincipal;
@@ -14,6 +15,7 @@ public class Aplicacao {
         MenuPrincipal menuPrincipal = new MenuPrincipal();
         MenuLogin menuLogin = new MenuLogin();
         MenuInsideHomePF menuInsideHomePF = new MenuInsideHomePF();
+        MenuCriacaoDeConta menuCriacaoDeConta = new MenuCriacaoDeConta();
         menuPrincipal.opcoesMenuPrincipal();
 
         do{
@@ -31,11 +33,13 @@ public class Aplicacao {
                 menuInsideHomePF.opcoesMenuInsideHomePF();
                 menuInsideHomePF.receberEntrada(s.nextInt());
             }
-
         }
 
         }else{
-            System.out.println("Em contrução!");
+            while (true){
+                menuCriacaoDeConta.opcoesMenuCriacaoDeConta();
+                menuCriacaoDeConta.receberEntrada(s.nextInt());
+            }
         }
 
     }

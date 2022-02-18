@@ -1,6 +1,6 @@
 package com.company.contas;
 
-public class ContaPoupanca extends Contas{
+public class ContaPoupanca extends Conta {
 
 
 

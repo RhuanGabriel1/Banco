@@ -44,8 +44,9 @@ public class MenuInsideHomePF  implements Menus.IMenuInsideHomePF{
                 setValor(s.nextBigDecimal());
                 depositar.depositar(getValor(), dados);
                 break;
-//            case 4:
-//                return 4;
+            case 4:
+                dados.pegarDados();
+                break;
             case 5:
                 System.out.println("Em construção!");
                 break;
