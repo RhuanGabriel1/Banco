@@ -1,15 +1,22 @@
 package com.company.menus;
 
+import com.company.banco.Banco;
+import com.company.contas.Conta;
+import com.company.contas.ContaCorrente;
+import com.company.contas.ContaInvestimento;
 import com.company.contas.ContaPoupanca;
 import com.company.interfaces.Menus;
+import com.company.usuarios.ClientePF;
 
 import java.util.Scanner;
 
 public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
 
     Scanner s = new Scanner(System.in);
+    ClientePF clientePF = new ClientePF();
+    Banco banco = new Banco();
+    Object[] objeto = new Object[4];
 
-    private String nome, senha, cpf;
 
     private int entrada;
 
@@ -17,11 +24,11 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
     public void digitarMenuColocarDadosContaPF() {
 
         System.out.print("Nome: ");
-        nome = s.nextLine();
+        clientePF.setNome(s.nextLine());
         System.out.print("Senha: ");
-        senha = s.nextLine();
+        clientePF.setSenha(s.nextLine());
         System.out.print("CPF: ");
-        cpf = s.nextLine();
+        clientePF.setCPF(s.nextLine());
         opcoesDeConta();
         System.out.print("Tipo de conta:  ");
         do {
@@ -39,22 +46,54 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
 
     @Override
     public void criacaoDeConta(){
-        if(devolveTipoDeConta() == 1){
+
+        digitarMenuColocarDadosContaPF();
+
+        if(getEntrada() == 1){
 
 
-        }else if(devolveTipoDeConta() == 2){
-//            System.out.print("Saldo incial: ");
-//            contaPoupanca.setSaldo(s.nextBigDecimal());
-//            banco.abrirConta(contaPoupanca);
-        }else{
-//            System.out.print("Saldo incial: ");
-//            contaInvestimento.setSaldo(s.nextBigDecimal());
-//            banco.abrirConta(contaInvestimento);
+            Conta conta = new ContaCorrente();
+            System.out.print("\nSaldo inicial: ");
+            conta.setSaldo(s.nextBigDecimal());
+
+            objeto[0] = clientePF.getNome();
+            objeto[1] = clientePF.getSenha();
+            objeto[2] = clientePF.getCPF();
+            objeto[3] = conta.getSaldo();
+
+            banco.abrirConta(objeto);
+
+        }else if(getEntrada() == 2){
+            Conta conta = new ContaPoupanca();
+
+            System.out.print("\nSaldo inicial: ");
+            conta.setSaldo(s.nextBigDecimal());
+
+            objeto[0] = clientePF.getNome();
+            objeto[1] = clientePF.getSenha();
+            objeto[2] = clientePF.getCPF();
+            objeto[3] = conta.getSaldo();
+
+            banco.abrirConta(objeto);
+        }else if(getEntrada()==3){
+            Conta conta = new ContaInvestimento();
+
+            System.out.print("\nSaldo inicial: ");
+            conta.setSaldo(s.nextBigDecimal());
+
+            objeto[0] = clientePF.getNome();
+            objeto[1] = clientePF.getSenha();
+            objeto[2] = clientePF.getCPF();
+            objeto[3] = conta.getSaldo();
+
+            banco.abrirConta(objeto);
+        }else {
+            System.out.println("Opção incorreta");
         }
+
     }
 
-    public int devolveTipoDeConta(){
+    public int getEntrada() {
         return entrada;
     }
-
 }

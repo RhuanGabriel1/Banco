@@ -8,7 +8,7 @@ public class MenuCriacaoDeConta implements Menus.IMenuCriacaoDeConta {
 
     Scanner s = new Scanner(System.in);
     MenuColocarDadosContaPF menuColocarDadosContaPF = new MenuColocarDadosContaPF();
-
+    MenuColocarDadosContaPJ menuColocarDadosContaPJ = new MenuColocarDadosContaPJ();
     @Override
     public void opcoesMenuCriacaoDeConta() {
         System.out.println("\n1........................Pessoa Física");
@@ -20,12 +20,11 @@ public class MenuCriacaoDeConta implements Menus.IMenuCriacaoDeConta {
         switch(entrada){
             case 1:
                 System.out.println("Pessoa Física\n");
-
-                menuColocarDadosContaPF.digitarMenuColocarDadosContaPF();
                 menuColocarDadosContaPF.criacaoDeConta();
-
+                break;
             case 2:
-                System.out.println("Pessoa Jurídica");
+                System.out.println("Pessoa Jurídica\n");
+                menuColocarDadosContaPJ.criacaoDeConta();
                 break;
             default:
                 System.out.println("Opção ínvalida");

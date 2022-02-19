@@ -2,7 +2,6 @@ package com.company.usuarios;
 
 public abstract class Clientes {
 
-
     private String senha, nome;
 
     public String getSenha() {

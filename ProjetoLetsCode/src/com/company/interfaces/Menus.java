@@ -37,5 +37,10 @@ public interface Menus {
         void opcoesDeConta();
         void criacaoDeConta();
     }
+    interface IMenuColocarDadosContaPJ {
+        void digitarMenuColocarDadosContaPJ();
+        void opcoesDeConta();
+        void criacaoDeConta();
+    }
 
 }
