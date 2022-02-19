@@ -1,6 +1,6 @@
 package com.company.usuarios;
 
-public class ClientePJ {
+public class ClientePJ extends Clientes{
 
     private String CNPJ;
 

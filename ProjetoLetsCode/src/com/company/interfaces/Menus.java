@@ -32,8 +32,10 @@ public interface Menus {
         void receberEntrada(int entrada);
     }
 
-    interface IMenuColocarDadosConta{
-        void digitarMenuColocarDadosConta();
+    interface IMenuColocarDadosContaPF {
+        void digitarMenuColocarDadosContaPF();
+        void opcoesDeConta();
+        void criacaoDeConta();
     }
 
 }

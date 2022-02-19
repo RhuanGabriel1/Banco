@@ -1,14 +1,9 @@
 package com.company.usuarios;
 
-import java.math.BigDecimal;
-
-
-
 public abstract class Clientes {
 
 
     private String senha, nome;
-    private BigDecimal saldo;
 
     public String getSenha() {
         return senha;
@@ -25,15 +20,5 @@ public abstract class Clientes {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public BigDecimal getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(BigDecimal saldo) {
-        this.saldo = saldo;
-    }
-
-
 
 }

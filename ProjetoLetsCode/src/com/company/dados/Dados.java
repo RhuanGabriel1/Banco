@@ -13,7 +13,6 @@ public class Dados{
 
     private List<Conta> contas = new ArrayList<>();
 
-
     public void setarContas(){
 //        contas.add()
     }

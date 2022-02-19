@@ -1,7 +1,5 @@
 package com.company.menus;
 
-import com.company.banco.Banco;
-import com.company.dados.Dados;
 import com.company.interfaces.Menus;
 
 import java.util.Scanner;
@@ -9,21 +7,23 @@ import java.util.Scanner;
 public class MenuCriacaoDeConta implements Menus.IMenuCriacaoDeConta {
 
     Scanner s = new Scanner(System.in);
-    Dados dados = new Dados();
-    Banco banco = new Banco();
+    MenuColocarDadosContaPF menuColocarDadosContaPF = new MenuColocarDadosContaPF();
 
     @Override
     public void opcoesMenuCriacaoDeConta() {
-        System.out.println("\n1........................Conta Pessoa Física");
-        System.out.println("2........................Conta Pessoa Jurídica");
+        System.out.println("\n1........................Pessoa Física");
+        System.out.println("2........................Pessoa Jurídica");
     }
 
     @Override
     public void receberEntrada(int entrada) {
         switch(entrada){
             case 1:
-                System.out.println("Pessoa Física");
-                break;
+                System.out.println("Pessoa Física\n");
+
+                menuColocarDadosContaPF.digitarMenuColocarDadosContaPF();
+                menuColocarDadosContaPF.criacaoDeConta();
+
             case 2:
                 System.out.println("Pessoa Jurídica");
                 break;

@@ -1,5 +1,6 @@
 package com.company.menus;
 
+import com.company.banco.Banco;
 import com.company.dados.Dados;
 import com.company.interfaces.Menus;
 import com.company.operacoes.ConsultarSaldo;
@@ -46,6 +47,7 @@ public class MenuInsideHomePF  implements Menus.IMenuInsideHomePF{
                 break;
             case 4:
                 dados.pegarDados();
+                Banco banco= new Banco();
                 break;
             case 5:
                 System.out.println("Em construção!");
