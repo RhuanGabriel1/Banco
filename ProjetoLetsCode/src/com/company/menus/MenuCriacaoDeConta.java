@@ -16,19 +16,21 @@ public class MenuCriacaoDeConta implements Menus.IMenuCriacaoDeConta {
     }
 
     @Override
-    public void receberEntrada(int entrada) {
+    public boolean receberEntrada(int entrada) {
+
         switch(entrada){
             case 1:
                 System.out.println("Pessoa Física\n");
                 menuColocarDadosContaPF.criacaoDeConta();
-                break;
+
+                return false;
             case 2:
                 System.out.println("Pessoa Jurídica\n");
                 menuColocarDadosContaPJ.criacaoDeConta();
-                break;
+                return false;
             default:
                 System.out.println("Opção ínvalida");
-                break;
+                return false;
         }
     }
 }

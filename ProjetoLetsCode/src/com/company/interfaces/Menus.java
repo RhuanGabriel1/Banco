@@ -26,7 +26,7 @@ public interface Menus {
 
     interface IMenuCriacaoDeConta{
         void opcoesMenuCriacaoDeConta();
-        void receberEntrada(int entrada);
+        boolean receberEntrada(int entrada);
     }
 
     interface IMenuColocarDadosContaPF {
