@@ -1,11 +1,11 @@
 package com.company.menus;
 
-import com.company.banco.Banco;
+import com.company.contas.Conta;
+import com.company.contas.ContaCorrente;
+import com.company.contas.ContaInvestimento;
+import com.company.contas.ContaPoupanca;
 import com.company.dados.Dados;
 import com.company.interfaces.Menus;
-import com.company.operacoes.ConsultarSaldo;
-import com.company.operacoes.Depositar;
-import com.company.operacoes.Sacar;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
@@ -15,10 +15,13 @@ public class MenuInsideHomePF  implements Menus.IMenuInsideHomePF{
 
     Scanner s = new Scanner(System.in);
     Dados dados = new Dados();
-    ConsultarSaldo saldo = new ConsultarSaldo();
-    Depositar depositar = new Depositar();
-    Sacar sacar = new Sacar();
+    Conta contaCorrente = new ContaCorrente();
+    Conta contaPoupanca = new ContaPoupanca();
+    Conta contaInvestimento = new ContaInvestimento();
+    MenuLogin menuLogin = new MenuLogin();
+
     private BigDecimal valor;
+    private String cpfECnpj ;
 
     @Override
     public void opcoesMenuInsideHomePF() {
@@ -26,33 +29,87 @@ public class MenuInsideHomePF  implements Menus.IMenuInsideHomePF{
         System.out.println("2........................Sacar");
         System.out.println("3........................Depositar");
         System.out.println("4........................Transferir");
-        System.out.println("5........................Voltar");
     }
 
     @Override
     public void receberEntrada(int entrada){
         switch (entrada){
             case 1:
-                System.out.println(saldo.retornarSaldo(dados).toString());
+
+                if(menuLogin.dados.getObjeto()[4].equals(1)){
+                    System.out.println(contaCorrente.consultarSaldo(dados));
+                }
+                else if(menuLogin.dados.getObjeto()[4].equals(2)){
+                    System.out.println(contaPoupanca.consultarSaldo(dados));
+                }
+                else if(menuLogin.dados.getObjeto()[4].equals(3)){
+                    System.out.println(contaInvestimento.consultarSaldo(dados));
+                }
+                else{
+                    System.out.println("Opção inválida");
+                }
+
                 break;
             case 2:
                 System.out.print("\nDigite o valor: R$ ");
                 setValor(s.nextBigDecimal());
-                sacar.sacar(getValor(), dados);
+                if(menuLogin.dados.getObjeto()[4].equals(1)){
+                    contaCorrente.sacar(getValor() , dados);
+                }
+                else if (menuLogin.dados.getObjeto()[4].equals(2)){
+                    contaPoupanca.sacar(getValor() , dados);
+                }
+                else if(menuLogin.dados.getObjeto()[4].equals(3)){
+                    contaInvestimento.sacar(getValor() , dados);
+                }
+                else {
+                    System.out.println("Opção inválida");
+                }
                 break;
             case 3:
                 System.out.print("\nDigite o valor: R$ ");
                 setValor(s.nextBigDecimal());
-                depositar.depositar(getValor(), dados);
+                if(menuLogin.dados.getObjeto()[4].equals(1)){
+                    ContaCorrente cc = new ContaCorrente();
+                    cc.depositar(getValor(), dados);
+                }
+                else if (menuLogin.dados.getObjeto()[4].equals(2)){
+                    ContaPoupanca cp = new ContaPoupanca();
+                    cp.depositarComRendimento(getValor(), dados);
+                }
+                else if(menuLogin.dados.getObjeto()[4].equals(3)){
+                    ContaInvestimento ci = new ContaInvestimento();
+                    ci.investirPF(getValor(), dados);
+                }
+                else {
+                    System.out.println("Opção inválida");
+                }
                 break;
             case 4:
-                System.out.println("Em Contrução");
-                break;
-            case 5:
-                System.out.println("Em construção!");
+                System.out.print("\nDigite o CPF ou CNPJ da pessoa que irá receber o dinheiro: ");
+                setCpfECnpj(s.nextLine());
+                System.out.print("\nDigite o valor: R$ ");
+                setValor(s.nextBigDecimal());
+                s.nextLine();
+
+                if(menuLogin.dados.getObjeto()[4].equals(1)){
+                    ContaCorrente cc = new ContaCorrente();
+                    cc.transferir(getValor(), dados, getCpfECnpj());
+                }
+                else if (menuLogin.dados.getObjeto()[4].equals(2)){
+                    ContaPoupanca cp = new ContaPoupanca();
+                    cp.transferir(getValor(),dados,cpfECnpj);
+                }
+                else if(menuLogin.dados.getObjeto()[4].equals(3)){
+                    ContaInvestimento ci = new ContaInvestimento();
+                    ci.transferir(getValor(),dados,cpfECnpj);
+                }
+                else {
+                    System.out.println("Opção inválida");
+                }
                 break;
             default:
-                System.out.println("Opção ínvalida");
+                System.out.println("Opção inválida");
                 break;
         }
     }
@@ -65,5 +122,11 @@ public class MenuInsideHomePF  implements Menus.IMenuInsideHomePF{
         return valor;
     }
 
+    public String getCpfECnpj() {
+        return cpfECnpj;
+    }
 
+    public void setCpfECnpj(String cpfECnpj) {
+        this.cpfECnpj = cpfECnpj;
+    }
 }

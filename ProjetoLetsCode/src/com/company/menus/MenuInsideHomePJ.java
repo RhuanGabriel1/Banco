@@ -18,9 +18,6 @@ public class MenuInsideHomePJ implements Menus.IMenuInsideHomePJ {
     Sacar sacar = new Sacar();
     private BigDecimal valor;
 
-    // TODO: 18/02/2022 Mudar a operação de depositar para investir
-
-
     @Override
     public void opcoesMenuInsideHomePJ() {
         System.out.println("1........................Consultar Saldo");
@@ -28,7 +25,6 @@ public class MenuInsideHomePJ implements Menus.IMenuInsideHomePJ {
         System.out.println("3........................Investir");
         System.out.println("4........................Transferir");
         System.out.println("5........................Voltar");
-
     }
 
     @Override
@@ -47,8 +43,10 @@ public class MenuInsideHomePJ implements Menus.IMenuInsideHomePJ {
                 setValor(s.nextBigDecimal());
                 depositar.depositar(getValor(), dados);
                 break;
-//            case 4:
-            // TODO: 19/02/2022 Criar uma conta adiconal para testar tranferência 
+            case 4:
+
+
+            // TODO: 19/02/2022 Criar uma conta adiconal para testar tranferência
 //                return 4;
             case 5:
                 System.out.println("Em construção!");

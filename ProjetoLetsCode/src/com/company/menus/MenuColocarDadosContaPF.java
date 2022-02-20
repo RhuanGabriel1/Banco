@@ -17,7 +17,7 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
     ClientePF clientePF = new ClientePF();
     Banco banco = new Banco();
     Dados dados = new Dados();
-    Object[] objeto = new Object[4];
+    Object[] objeto = new Object[5];
 
 
     private int entrada;
@@ -61,6 +61,8 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
             objeto[1] = clientePF.getSenha();
             objeto[2] = clientePF.getCPF();
             objeto[3] = conta.getSaldo();
+            objeto[4] = 1;
+            System.out.println(conta);
 
             banco.abrirConta(objeto,dados);
 
@@ -74,6 +76,7 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
             objeto[1] = clientePF.getSenha();
             objeto[2] = clientePF.getCPF();
             objeto[3] = conta.getSaldo();
+            objeto[4] = 2;
 
             banco.abrirConta(objeto,dados);
         }else if(getEntrada()==3){
@@ -86,6 +89,7 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
             objeto[1] = clientePF.getSenha();
             objeto[2] = clientePF.getCPF();
             objeto[3] = conta.getSaldo();
+            objeto[4] = 3;
 
             banco.abrirConta(objeto,dados);
         }else {

@@ -10,6 +10,7 @@ public class MenuLogin implements Menus.IMenuLogin{
     Scanner s = new Scanner(System.in);
     private String senha, cnpjECpf;
     Dados dados = new Dados();
+    Object objeto = new Object[1];
 
     @Override
     public boolean comparacaoSenha() {
@@ -35,6 +36,7 @@ public class MenuLogin implements Menus.IMenuLogin{
 
     @Override
     public void senha() {
+        objeto = dados.getObjeto()[4];
         System.out.print("Digite sua senha: ");
         recebeSenha();
     }
@@ -64,5 +66,13 @@ public class MenuLogin implements Menus.IMenuLogin{
 
     public void setCnpjECpf(String cnpjECpf) {
         this.cnpjECpf = cnpjECpf;
+    }
+
+    public Object getObjeto() {
+        return objeto;
+    }
+
+    public void setObjeto(Object objeto) {
+        this.objeto = objeto;
     }
 }

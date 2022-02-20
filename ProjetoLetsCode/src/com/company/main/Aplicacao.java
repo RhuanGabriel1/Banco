@@ -27,12 +27,15 @@ public class Aplicacao {
 
 
             if (menuPrincipal.getEntrada() == 1) {
+
+
                 if (menuLogin.comparacaoSenha()) {
 
                     if (menuLogin.getCnpjECpf().length() == 11) {
 
                         while (true) {
                             menuInsideHomePF.opcoesMenuInsideHomePF();
+
                             menuInsideHomePF.receberEntrada(s.nextInt());
                         }
                     }
@@ -45,6 +48,8 @@ public class Aplicacao {
                     }
 
                 }
+
+
             }
 
             // TODO: 20/02/2022 Fazer validações para que tudo fique em loop que nem o exemplo abaixo usando do while e retornado false 
