@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class MenuCriacaoDeConta implements Menus.IMenuCriacaoDeConta {
 
-    Scanner s = new Scanner(System.in);
-    MenuColocarDadosContaPF menuColocarDadosContaPF = new MenuColocarDadosContaPF();
-    MenuColocarDadosContaPJ menuColocarDadosContaPJ = new MenuColocarDadosContaPJ();
+    private MenuColocarDadosContaPF menuColocarDadosContaPF = new MenuColocarDadosContaPF();
+    private MenuColocarDadosContaPJ menuColocarDadosContaPJ = new MenuColocarDadosContaPJ();
+
     @Override
     public void opcoesMenuCriacaoDeConta() {
         System.out.println("\n1........................Pessoa Física");

@@ -46,8 +46,7 @@ public class MenuInsideHomePF  implements Menus.IMenuInsideHomePF{
                 depositar.depositar(getValor(), dados);
                 break;
             case 4:
-                dados.pegarDados();
-                Banco banco= new Banco();
+                System.out.println("Em Contrução");
                 break;
             case 5:
                 System.out.println("Em construção!");

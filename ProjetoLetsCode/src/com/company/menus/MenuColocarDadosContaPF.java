@@ -5,6 +5,7 @@ import com.company.contas.Conta;
 import com.company.contas.ContaCorrente;
 import com.company.contas.ContaInvestimento;
 import com.company.contas.ContaPoupanca;
+import com.company.dados.Dados;
 import com.company.interfaces.Menus;
 import com.company.usuarios.ClientePF;
 
@@ -15,6 +16,7 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
     Scanner s = new Scanner(System.in);
     ClientePF clientePF = new ClientePF();
     Banco banco = new Banco();
+    Dados dados = new Dados();
     Object[] objeto = new Object[4];
 
 
@@ -32,7 +34,7 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
         opcoesDeConta();
         System.out.print("Tipo de conta:  ");
         do {
-            entrada = s.nextInt();
+            setEntrada(s.nextInt());
         }while (entrada!= 1 && entrada!= 2 && entrada!=3);
         s.nextLine();
     }
@@ -51,7 +53,6 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
 
         if(getEntrada() == 1){
 
-
             Conta conta = new ContaCorrente();
             System.out.print("\nSaldo inicial: ");
             conta.setSaldo(s.nextBigDecimal());
@@ -61,7 +62,7 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
             objeto[2] = clientePF.getCPF();
             objeto[3] = conta.getSaldo();
 
-            banco.abrirConta(objeto);
+            banco.abrirConta(objeto,dados);
 
         }else if(getEntrada() == 2){
             Conta conta = new ContaPoupanca();
@@ -74,7 +75,7 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
             objeto[2] = clientePF.getCPF();
             objeto[3] = conta.getSaldo();
 
-            banco.abrirConta(objeto);
+            banco.abrirConta(objeto,dados);
         }else if(getEntrada()==3){
             Conta conta = new ContaInvestimento();
 
@@ -86,7 +87,7 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
             objeto[2] = clientePF.getCPF();
             objeto[3] = conta.getSaldo();
 
-            banco.abrirConta(objeto);
+            banco.abrirConta(objeto,dados);
         }else {
             System.out.println("Opção incorreta");
         }
@@ -95,5 +96,9 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
 
     public int getEntrada() {
         return entrada;
+    }
+
+    public void setEntrada(int entrada) {
+        this.entrada = entrada;
     }
 }

@@ -4,6 +4,7 @@ import com.company.banco.Banco;
 import com.company.contas.Conta;
 import com.company.contas.ContaCorrente;
 import com.company.contas.ContaInvestimento;
+import com.company.dados.Dados;
 import com.company.interfaces.Menus;
 import com.company.usuarios.ClientePJ;
 
@@ -14,6 +15,7 @@ public class MenuColocarDadosContaPJ implements Menus.IMenuColocarDadosContaPJ{
     Scanner s = new Scanner(System.in);
     ClientePJ clientePJ = new ClientePJ();
     Banco banco = new Banco();
+    Dados dados = new Dados();
     Object[] objeto = new Object[4];
 
     private int entrada;
@@ -35,7 +37,7 @@ public class MenuColocarDadosContaPJ implements Menus.IMenuColocarDadosContaPJ{
         opcoesDeConta();
         System.out.print("Tipo de conta:  ");
         do {
-            entrada = s.nextInt();
+            setEntrada(s.nextInt());
         }while (entrada!= 1 && entrada!= 2);
         s.nextLine();
     }
@@ -55,8 +57,7 @@ public class MenuColocarDadosContaPJ implements Menus.IMenuColocarDadosContaPJ{
             objeto[2] = clientePJ.getCNPJ();
             objeto[3] = conta.getSaldo();
 
-            banco.abrirConta(objeto);
-
+            banco.abrirConta(objeto,dados);
         }else if(getEntrada()==2){
             Conta conta = new ContaInvestimento();
             System.out.print("\nSaldo inicial: ");
@@ -66,13 +67,11 @@ public class MenuColocarDadosContaPJ implements Menus.IMenuColocarDadosContaPJ{
             objeto[1] = clientePJ.getSenha();
             objeto[2] = clientePJ.getCNPJ();
             objeto[3] = conta.getSaldo();
-            banco.abrirConta(objeto);
+            banco.abrirConta(objeto,dados);
 
         }else{
             System.out.println("Opção incorreta");
         }
-
-
     }
 
     public int getEntrada() {

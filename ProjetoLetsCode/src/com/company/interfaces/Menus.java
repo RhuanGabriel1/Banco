@@ -7,14 +7,11 @@ public interface Menus {
     }
 
     interface  IMenuLogin{
-        void opcoesMenuLogin();
         boolean comparacaoSenha();
-        void recebeSenha();
-        void recebeNumeroConta();
-        void recebeNumeroAgencia();
-        void numeroConta();
-        void numeroAgencia();
         void senha();
+        void recebeSenha();
+        void cnpjECpf();
+        void recebeCnpjECpf();
     }
 
     interface IMenuInsideHomePF{

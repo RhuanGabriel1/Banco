@@ -8,87 +8,61 @@ import java.util.Scanner;
 public class MenuLogin implements Menus.IMenuLogin{
 
     Scanner s = new Scanner(System.in);
-    private int senha, numeroAgencia, numeroConta;
-
-    @Override
-    public void opcoesMenuLogin() {
-        numeroAgencia();
-        numeroConta();
-    }
+    private String senha, cnpjECpf;
+    Dados dados = new Dados();
 
     @Override
     public boolean comparacaoSenha() {
-        Dados dados = new Dados();
-        if(getNumeroConta() == dados.getNumeroConta()){
+        cnpjECpf();
+        if(getCnpjECpf().equals(dados.getObjeto()[2])){
             senha();
-            if (getSenha() == dados.getSenha()){
+            if (getSenha().equals(dados.getObjeto()[1])){
                 return true;
             }else{
                 System.out.println("Senha não encontrado. Abortando operação!");
                 return false;
             }
         }else{
-            System.out.println("Numero de conta não encontrado. Abortando operação!");
+            System.out.println("Número do CPF/CPNJ não encotrado!");
             return false;
         }
     }
 
     @Override
     public void recebeSenha() {
-        setSenha(s.nextInt());
-        s.nextLine();
+        setSenha(s.nextLine());
     }
 
-    @Override
-    public void recebeNumeroConta() {
-        setNumeroConta(s.nextInt());
-        s.nextLine();
-    }
-
-    @Override
-    public void recebeNumeroAgencia() {
-        setNumeroAgencia(s.nextInt());
-        s.nextLine();
-    }
-
-    @Override
-    public void numeroConta() {
-        System.out.print("Digite seu Número da Conta: ");
-        recebeNumeroConta();
-    }
-
-    @Override
-    public void numeroAgencia() {
-        System.out.print("Digite o Número da Agencia: ");
-        recebeNumeroAgencia();
-    }
     @Override
     public void senha() {
         System.out.print("Digite sua senha: ");
         recebeSenha();
     }
 
-    public int getSenha() {
+    @Override
+    public void recebeCnpjECpf() {
+        setCnpjECpf(s.nextLine());
+    }
+
+    @Override
+    public void cnpjECpf() {
+        System.out.print("Digite seu CPF/CNPJ: ");
+        recebeCnpjECpf();
+    }
+
+    public String getSenha() {
         return senha;
     }
 
-    public void setSenha(int senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 
-    public int getNumeroAgencia() {
-        return numeroAgencia;
+    public String getCnpjECpf() {
+        return cnpjECpf;
     }
 
-    public void setNumeroAgencia(int numeroAgencia) {
-        this.numeroAgencia = numeroAgencia;
-    }
-
-    public int getNumeroConta() {
-        return numeroConta;
-    }
-
-    public void setNumeroConta(int numeroConta) {
-        this.numeroConta = numeroConta;
+    public void setCnpjECpf(String cnpjECpf) {
+        this.cnpjECpf = cnpjECpf;
     }
 }

@@ -1,9 +1,6 @@
 package com.company.main;
 
-import com.company.menus.MenuCriacaoDeConta;
-import com.company.menus.MenuInsideHomePF;
-import com.company.menus.MenuLogin;
-import com.company.menus.MenuPrincipal;
+import com.company.menus.*;
 
 import java.util.Scanner;
 
@@ -15,6 +12,7 @@ public class Aplicacao {
         MenuPrincipal menuPrincipal = new MenuPrincipal();
         MenuLogin menuLogin = new MenuLogin();
         MenuInsideHomePF menuInsideHomePF = new MenuInsideHomePF();
+        MenuInsideHomePJ menuInsideHomePJ = new MenuInsideHomePJ();
         MenuCriacaoDeConta menuCriacaoDeConta = new MenuCriacaoDeConta();
         menuPrincipal.opcoesMenuPrincipal();
 
@@ -26,13 +24,24 @@ public class Aplicacao {
         }while(menuPrincipal.getEntrada()!= 1 && menuPrincipal.getEntrada()!= 2);
 
         if(menuPrincipal.getEntrada() == 1) {
-            menuLogin.opcoesMenuLogin();
         if(menuLogin.comparacaoSenha()){
 
-            while(true){
-                menuInsideHomePF.opcoesMenuInsideHomePF();
-                menuInsideHomePF.receberEntrada(s.nextInt());
+            if(menuLogin.getCnpjECpf().length() == 11) {
+
+                while (true) {
+                    menuInsideHomePF.opcoesMenuInsideHomePF();
+                    menuInsideHomePF.receberEntrada(s.nextInt());
+                }
             }
+            if(menuLogin.getCnpjECpf().length()> 11 && menuLogin.getCnpjECpf().length()<15){
+
+                while (true){
+                    menuInsideHomePJ.opcoesMenuInsideHomePJ();
+                    menuInsideHomePJ.receberEntrada(s.nextInt());
+                }
+
+            }
+
         }
 
         }else{
