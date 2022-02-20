@@ -13,11 +13,18 @@ public abstract class Conta extends Clientes {
         return dados.getSaldo();
     }
 
-    public void sacar(BigDecimal valor, Dados dados){
+    public void sacarPF(BigDecimal valor, Dados dados){
         dados.setSaldo(dados.getSaldo().subtract(valor));
     }
 
-    public void transferir(BigDecimal valor, Dados dados, String cpfECnpj){
+    public void sacarPJ(BigDecimal valor, Dados dados){
+
+        BigDecimal aux = valor.subtract(valor.multiply(BigDecimal.valueOf(0.5)));
+        dados.setSaldo(dados.getSaldo().subtract(valor));
+        dados.setSaldo(dados.getSaldo().subtract(aux));
+    }
+
+    public void transferirPF(BigDecimal valor, Dados dados, String cpfECnpj){
         if(dados.getObjetoContaTransferencia()[2].equals(cpfECnpj)){
             dados.setSaldo(dados.getSaldo().subtract(valor));
             dados.setSaldoContaTransferencia(dados.getSaldoContaTransferencia().add(valor));
@@ -25,7 +32,20 @@ public abstract class Conta extends Clientes {
         }else {
             System.out.println("CPF/CNPJ não encontrado");
         }
+    }
 
+    public void transferirPJ(BigDecimal valor, Dados dados, String cpfECnpj){
+
+        if(dados.getObjetoContaTransferencia()[2].equals(cpfECnpj)){
+
+            dados.setSaldo(dados.getSaldo().subtract(valor));
+            BigDecimal auxParaDescontar = valor.multiply(BigDecimal.valueOf(0.5));
+            dados.setSaldo(dados.getSaldo().subtract(auxParaDescontar));
+            dados.setSaldoContaTransferencia(dados.getSaldoContaTransferencia().add(valor));
+
+        }else{
+            System.out.println("CPF/CNPJ não encontrado");
+        }
     }
 
     public BigDecimal getSaldo() {

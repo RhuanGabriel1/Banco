@@ -25,6 +25,8 @@ public class MenuInsideHomePF  implements Menus.IMenuInsideHomePF{
 
     @Override
     public void opcoesMenuInsideHomePF() {
+        System.out.println("\nPessoa Física");
+
         System.out.println("\n1........................Consultar Saldo");
         System.out.println("2........................Sacar");
         System.out.println("3........................Depositar");
@@ -54,13 +56,13 @@ public class MenuInsideHomePF  implements Menus.IMenuInsideHomePF{
                 System.out.print("\nDigite o valor: R$ ");
                 setValor(s.nextBigDecimal());
                 if(menuLogin.dados.getObjeto()[4].equals(1)){
-                    contaCorrente.sacar(getValor() , dados);
+                    contaCorrente.sacarPF(getValor() , dados);
                 }
                 else if (menuLogin.dados.getObjeto()[4].equals(2)){
-                    contaPoupanca.sacar(getValor() , dados);
+                    contaPoupanca.sacarPF(getValor() , dados);
                 }
                 else if(menuLogin.dados.getObjeto()[4].equals(3)){
-                    contaInvestimento.sacar(getValor() , dados);
+                    contaInvestimento.sacarPF(getValor() , dados);
                 }
                 else {
                     System.out.println("Opção inválida");
@@ -94,15 +96,15 @@ public class MenuInsideHomePF  implements Menus.IMenuInsideHomePF{
 
                 if(menuLogin.dados.getObjeto()[4].equals(1)){
                     ContaCorrente cc = new ContaCorrente();
-                    cc.transferir(getValor(), dados, getCpfECnpj());
+                    cc.transferirPF(getValor(), dados, getCpfECnpj());
                 }
                 else if (menuLogin.dados.getObjeto()[4].equals(2)){
                     ContaPoupanca cp = new ContaPoupanca();
-                    cp.transferir(getValor(),dados,cpfECnpj);
+                    cp.transferirPF(getValor(),dados,cpfECnpj);
                 }
                 else if(menuLogin.dados.getObjeto()[4].equals(3)){
                     ContaInvestimento ci = new ContaInvestimento();
-                    ci.transferir(getValor(),dados,cpfECnpj);
+                    ci.transferirPF(getValor(),dados,cpfECnpj);
                 }
                 else {
                     System.out.println("Opção inválida");

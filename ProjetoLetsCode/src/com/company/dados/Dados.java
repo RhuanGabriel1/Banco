@@ -16,15 +16,15 @@ public class Dados{
     public void setarObjeto(){
         this.objeto[0] = "a";
         this.objeto[1] = "a";
-        this.objeto[2] = "12345678901";
+        this.objeto[2] = "12345678901234";
         this.saldo = (BigDecimal) (this.objeto[3] = BigDecimal.valueOf(1111));
-        this.objeto[4] = 2;
+        this.objeto[4] = 1;
 
         this.objetoContaTransferencia[0] = "Joao";
         this.objetoContaTransferencia[1] = "a";
         this.objetoContaTransferencia[2] = "12345678900";
-        this.saldoContaTransferencia = (BigDecimal) (this.objeto[3] = BigDecimal.valueOf(1111));
-        this.objeto[4] = 2;
+        this.saldoContaTransferencia = (BigDecimal) (this.objetoContaTransferencia[3] = BigDecimal.valueOf(1111));
+        this.objeto[4] = 1;
     }
 
     public void setObjeto(Object[] objeto) {
@@ -32,7 +32,6 @@ public class Dados{
     }
 
     public Object[] getObjeto() {
-        // TODO: 19/02/2022 Arrumar depois 
         return objeto;
     }
 

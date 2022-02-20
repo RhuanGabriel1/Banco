@@ -52,8 +52,6 @@ public class Aplicacao {
 
             }
 
-            // TODO: 20/02/2022 Fazer validações para que tudo fique em loop que nem o exemplo abaixo usando do while e retornado false 
-            
             if (menuPrincipal.getEntrada() == 2) {
 
                 do {
