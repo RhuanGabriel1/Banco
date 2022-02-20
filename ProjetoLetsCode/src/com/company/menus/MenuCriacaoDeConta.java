@@ -2,7 +2,6 @@ package com.company.menus;
 
 import com.company.interfaces.Menus;
 
-import java.util.Scanner;
 
 public class MenuCriacaoDeConta implements Menus.IMenuCriacaoDeConta {
 
@@ -17,12 +16,10 @@ public class MenuCriacaoDeConta implements Menus.IMenuCriacaoDeConta {
 
     @Override
     public boolean receberEntrada(int entrada) {
-
-        switch(entrada){
+        switch (entrada) {
             case 1:
                 System.out.println("Pessoa Física\n");
                 menuColocarDadosContaPF.criacaoDeConta();
-
                 return false;
             case 2:
                 System.out.println("Pessoa Jurídica\n");

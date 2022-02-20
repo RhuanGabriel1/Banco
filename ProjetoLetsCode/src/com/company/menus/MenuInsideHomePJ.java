@@ -33,7 +33,7 @@ public class MenuInsideHomePJ implements Menus.IMenuInsideHomePJ {
     }
 
     @Override
-    public void receberEntrada(int entrada) {
+    public boolean receberEntrada(int entrada) {
         switch (entrada){
             case 1:
 
@@ -47,7 +47,7 @@ public class MenuInsideHomePJ implements Menus.IMenuInsideHomePJ {
                     System.out.println("Opção inválida");
                 }
 
-                break;
+                return false;
 
             case 2:
                 System.out.print("\nDigite o valor: R$ ");
@@ -63,7 +63,7 @@ public class MenuInsideHomePJ implements Menus.IMenuInsideHomePJ {
                     System.out.println("Opção inválida");
                 }
 
-                break;
+                return false;
 
             case 3:
                 System.out.print("\nDigite o valor: R$ ");
@@ -81,7 +81,7 @@ public class MenuInsideHomePJ implements Menus.IMenuInsideHomePJ {
                     System.out.println("Opção inválida");
                 }
 
-                break;
+                return false;
 
             case 4:
                 System.out.print("\nDigite o CPF ou CNPJ da pessoa que irá receber o dinheiro: ");
@@ -101,12 +101,12 @@ public class MenuInsideHomePJ implements Menus.IMenuInsideHomePJ {
                 else {
                     System.out.println("Opção inválida");
                 }
-                break;
+                return false;
 
             default:
                 System.out.println("Opção ínvalida");
 
-                break;
+                return false;
         }
     }
 

@@ -16,12 +16,12 @@ public interface Menus {
 
     interface IMenuInsideHomePF{
         void opcoesMenuInsideHomePF();
-        void receberEntrada(int entrada);
+        boolean receberEntrada(int entrada);
     }
 
     interface IMenuInsideHomePJ{
         void opcoesMenuInsideHomePJ();
-        void receberEntrada(int entrada);
+        boolean receberEntrada(int entrada);
     }
 
     interface IMenuCriacaoDeConta{

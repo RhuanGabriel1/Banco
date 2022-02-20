@@ -62,7 +62,6 @@ public class MenuColocarDadosContaPF implements Menus.IMenuColocarDadosContaPF {
             objeto[2] = clientePF.getCPF();
             objeto[3] = conta.getSaldo();
             objeto[4] = 1;
-            System.out.println(conta);
 
             banco.abrirConta(objeto,dados);
 

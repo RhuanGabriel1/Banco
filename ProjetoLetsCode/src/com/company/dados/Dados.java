@@ -6,8 +6,8 @@ public class Dados{
 
     private BigDecimal saldo = BigDecimal.valueOf(1000);
     private BigDecimal saldoContaTransferencia = BigDecimal.valueOf(1000);;
-    Object[] objeto = new Object[5];
-    Object[] objetoContaTransferencia = new Object[5];
+    private Object[] objeto = new Object[5];
+    private Object[] objetoContaTransferencia = new Object[5];
 
     public  Dados(){
         setarObjeto();

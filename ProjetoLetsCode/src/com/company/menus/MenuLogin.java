@@ -8,9 +8,10 @@ import java.util.Scanner;
 public class MenuLogin implements Menus.IMenuLogin{
 
     Scanner s = new Scanner(System.in);
-    private String senha, cnpjECpf;
     Dados dados = new Dados();
     Object objeto = new Object[1];
+
+    private String senha, cnpjECpf;
 
     @Override
     public boolean comparacaoSenha() {
@@ -68,11 +69,4 @@ public class MenuLogin implements Menus.IMenuLogin{
         this.cnpjECpf = cnpjECpf;
     }
 
-    public Object getObjeto() {
-        return objeto;
-    }
-
-    public void setObjeto(Object objeto) {
-        this.objeto = objeto;
-    }
 }
